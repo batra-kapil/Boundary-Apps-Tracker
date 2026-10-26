@@ -22,6 +22,7 @@ Know which external systems depend on a Salesforce object or field before you ch
 - [Permission sets](#permission-sets)
 - [Known issues](#known-issues)
 - [Roadmap](#roadmap)
+- [Follow along](#follow-along)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -377,6 +378,10 @@ These are ideas only. **None of them is built.**
 - **Agentforce topic wiring** so an Agentforce agent calls the impact action automatically before suggesting metadata changes.
 - **JIRA integration** to attach impact results to change tickets.
 - **Apex test coverage** for all classes, which production deploys and a packaged release require.
+
+## Follow along
+
+If you find this project useful, **[subscribe to SF Bolt on YouTube](https://youtube.com/SalesforceBolt)** for content on AI, Agentforce, LWC and more.
 
 ## Contributing
 
