@@ -44,7 +44,7 @@ Boundary Application Tracker gives you one place to record which external system
 
 ## Screenshots
 
-> The images below are placeholders until real screenshots are added. Each file in [`docs/screenshots/`](docs/screenshots/) can be replaced with a real PNG of the same name.
+> Screenshots are illustrative previews using sample data, not captures from a production org. Each file in [`docs/screenshots/`](docs/screenshots/) can be replaced with a real PNG of the same name.
 
 **Boundary Impact Dashboard.** The network graph (left) puts the selected object at the center, with connected applications colored by criticality and edges styled by data direction. The impact panel (right) lists the same applications with owners, sync frequency and last-validated date.
 
