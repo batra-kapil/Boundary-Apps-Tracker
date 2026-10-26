@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_Owner__c</fullName>
+    <label>Technical Owner</label>
+    <description>The Salesforce user who maintains this integration technically, such as the developer or administrator who built or currently supports the connection on the Salesforce side. This is the person who should be looped in first when a metadata change might require updating a mapping, mule flow, integration process, or API contract.</description>
+    <inlineHelpText>The person who maintains this integration technically.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipName>BoundaryApps_TechnicalOwner</relationshipName>
+    <relationshipLabel>Boundary Applications (Technical Owner)</relationshipLabel>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <required>false</required>
+</CustomField>

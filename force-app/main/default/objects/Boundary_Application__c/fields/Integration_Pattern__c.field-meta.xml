@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Pattern__c</fullName>
+    <label>Integration Pattern</label>
+    <description>The technical mechanism this external system uses to exchange data with Salesforce, such as a real-time API call, a scheduled batch job, a Change Data Capture or Platform Event subscription, an Outbound Message, or Salesforce Connect. This matters when assessing impact, because real-time and CDC integrations tend to fail loudly and immediately when metadata changes, while batch integrations may fail silently until the next scheduled run.</description>
+    <inlineHelpText>How this system exchanges data with Salesforce.</inlineHelpText>
+    <type>Picklist</type>
+    <required>true</required>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Real-time API</fullName>
+                <default>false</default>
+                <label>Real-time API</label>
+            </value>
+            <value>
+                <fullName>Batch/Scheduled</fullName>
+                <default>false</default>
+                <label>Batch/Scheduled</label>
+            </value>
+            <value>
+                <fullName>CDC/Platform Event</fullName>
+                <default>false</default>
+                <label>CDC/Platform Event</label>
+            </value>
+            <value>
+                <fullName>Outbound Message</fullName>
+                <default>false</default>
+                <label>Outbound Message</label>
+            </value>
+            <value>
+                <fullName>Salesforce Connect</fullName>
+                <default>false</default>
+                <label>Salesforce Connect</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

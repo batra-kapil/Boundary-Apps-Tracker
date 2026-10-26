@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Validated_Date__c</fullName>
+    <description>The date this mapping was last confirmed accurate by the integration&apos;s owner. A mapping that has not been validated in six months or more should be treated as possibly stale or out of date, and re-verified with the Technical Owner before being relied on for an impact assessment.</description>
+    <inlineHelpText>Date this mapping was last confirmed accurate by the integration owner. Stale mappings (6+ months) should be re-verified.</inlineHelpText>
+    <label>Last Validated Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

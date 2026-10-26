@@ -1,0 +1,10 @@
+<template>
+  <div class="dashboard-grid">
+    <div class="dashboard-col dashboard-col_graph">
+      <c-boundary-network-graph object-api-name={objectApiName} field-api-name={fieldApiName}></c-boundary-network-graph>
+    </div>
+    <div class="dashboard-col dashboard-col_panel">
+      <c-boundary-impact-panel object-api-name={objectApiName} field-api-name={fieldApiName}></c-boundary-impact-panel>
+    </div>
+  </div>
+</template>

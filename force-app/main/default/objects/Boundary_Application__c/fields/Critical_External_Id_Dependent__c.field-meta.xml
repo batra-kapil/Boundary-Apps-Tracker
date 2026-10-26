@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Critical_External_Id_Dependent__c</fullName>
+    <label>Critical External Id Dependent</label>
+    <description>Check this box if the external system stores or caches Salesforce record Ids for later use, for example to look up a record on a subsequent sync. Merging Salesforce records (such as Account or Contact merges) changes or invalidates the losing record's Id, so any external system that cached that Id will start failing to find the record. Checking this box flags the Boundary Application as high-risk specifically for merge operations, separate from its general Criticality rating.</description>
+    <inlineHelpText>Check this box if the external system stores or caches Salesforce record Ids. Flags this app as high-risk during merges, since merges invalidate Ids.</inlineHelpText>
+    <type>Checkbox</type>
+    <defaultValue>false</defaultValue>
+</CustomField>

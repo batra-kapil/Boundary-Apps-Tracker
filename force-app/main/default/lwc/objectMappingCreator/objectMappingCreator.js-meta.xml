@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Object Mapping Creator</masterLabel>
+    <description>Renders the New and Edit screens for Object Mapping. Embedded as a child of the ObjectMappingNewOverride Aura wrapper, which is the actual action override target — not placed or exposed on its own.</description>
+</LightningComponentBundle>

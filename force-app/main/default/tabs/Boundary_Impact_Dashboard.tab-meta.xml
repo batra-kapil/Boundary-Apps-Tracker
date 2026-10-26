@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Boundary Impact Dashboard</label>
+    <description>Opens the dedicated app page showing the impact panel and network graph together.</description>
+    <flexiPage>Boundary_Application_Impact_Dashboard</flexiPage>
+    <motif>Custom68: Globe</motif>
+</CustomTab>

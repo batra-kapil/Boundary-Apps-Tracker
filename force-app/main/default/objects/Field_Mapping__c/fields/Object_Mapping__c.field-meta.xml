@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Object_Mapping__c</fullName>
+    <description>The Object Mapping record that this field-level mapping belongs to, which in turn identifies both the Salesforce object and the Boundary Application involved. Every Field Mapping record must belong to exactly one Object Mapping, since deleting the Object Mapping removes all of its Field Mapping detail records.</description>
+    <inlineHelpText>The object-level mapping this field mapping belongs to.</inlineHelpText>
+    <label>Object Mapping</label>
+    <referenceTo>Object_Mapping__c</referenceTo>
+    <relationshipLabel>Field Mappings</relationshipLabel>
+    <relationshipName>Field_Mappings</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

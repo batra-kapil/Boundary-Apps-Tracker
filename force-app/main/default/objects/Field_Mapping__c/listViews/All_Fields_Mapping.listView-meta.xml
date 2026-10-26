@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Fields_Mapping</fullName>
+    <columns>NAME</columns>
+    <columns>Object_Mapping__c</columns>
+    <columns>Object_API_Name__c</columns>
+    <columns>Field_API_Name__c</columns>
+    <columns>Is_Critical__c</columns>
+    <columns>External_System_Field_Name__c</columns>
+    <columns>Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Fields Mapping</label>
+</ListView>

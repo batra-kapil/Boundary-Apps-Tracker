@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Boundary_Application__c</fullName>
+    <description>The Boundary Application (external system) that this object-level mapping belongs to. Every Object Mapping record must belong to exactly one Boundary Application, since deleting the Boundary Application removes all of its Object Mapping and Field Mapping detail records.</description>
+    <inlineHelpText>The external system this object mapping belongs to.</inlineHelpText>
+    <label>Boundary Application</label>
+    <referenceTo>Boundary_Application__c</referenceTo>
+    <relationshipLabel>Object Mappings</relationshipLabel>
+    <relationshipName>Object_Mappings</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

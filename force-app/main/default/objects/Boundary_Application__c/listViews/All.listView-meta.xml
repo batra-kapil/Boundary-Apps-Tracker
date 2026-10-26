@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Application_Type__c</columns>
+    <columns>Criticality__c</columns>
+    <columns>Direction__c</columns>
+    <columns>Integration_Pattern__c</columns>
+    <columns>Status__c</columns>
+    <columns>Technical_Owner__c</columns>
+    <columns>Business_Owner__c</columns>
+    <columns>Critical_External_Id_Dependent__c</columns>
+    <columns>Integration_User__c</columns>
+    <columns>Documentation_Link__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>All Applications</label>
+</ListView>

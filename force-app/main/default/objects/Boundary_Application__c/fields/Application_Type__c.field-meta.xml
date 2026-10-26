@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Type__c</fullName>
+    <label>Application Type</label>
+    <description>The category of external system this Boundary Application record represents. Helps an admin or agent quickly understand what kind of system they are dealing with before digging into the technical details of the connection.</description>
+    <inlineHelpText>What category of system this is.</inlineHelpText>
+    <type>Picklist</type>
+    <required>true</required>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Middleware</fullName>
+                <default>false</default>
+                <label>Middleware</label>
+            </value>
+            <value>
+                <fullName>ERP</fullName>
+                <default>false</default>
+                <label>ERP</label>
+            </value>
+            <value>
+                <fullName>Marketing Automation</fullName>
+                <default>false</default>
+                <label>Marketing Automation</label>
+            </value>
+            <value>
+                <fullName>CPQ/Billing</fullName>
+                <default>false</default>
+                <label>CPQ/Billing</label>
+            </value>
+            <value>
+                <fullName>Data Warehouse/BI</fullName>
+                <default>false</default>
+                <label>Data Warehouse/BI</label>
+            </value>
+            <value>
+                <fullName>Support Tool</fullName>
+                <default>false</default>
+                <label>Support Tool</label>
+            </value>
+            <value>
+                <fullName>AppExchange Package</fullName>
+                <default>false</default>
+                <label>AppExchange Package</label>
+            </value>
+            <value>
+                <fullName>RPA</fullName>
+                <default>false</default>
+                <label>RPA</label>
+            </value>
+            <value>
+                <fullName>Custom API Consumer</fullName>
+                <default>false</default>
+                <label>Custom API Consumer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

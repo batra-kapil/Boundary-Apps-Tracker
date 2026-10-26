@@ -1,0 +1,53 @@
+# Salesforce CLI state: org aliases, org Ids, auth info and source tracking
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# LWC VS Code autocomplete (generated per machine)
+**/lwc/jsconfig.json
+
+# Test coverage and temporary output
+coverage/
+tmp/
+.pmdCache
+.eslintcache
+
+# Logs and deploy output
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+
+# Local environment variables and credentials
+.env
+.env.*
+*.key
+*.pem
+
+# Local-only leftovers and diagnostics
+removed-backup/
+.verify-diag*/
+
+# IDEs: keep only the shared VS Code settings
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Python
+**/__pycache__/
+**/.venv/
+**/venv/

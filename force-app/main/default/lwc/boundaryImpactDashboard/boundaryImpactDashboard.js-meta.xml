@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Boundary Impact Dashboard</masterLabel>
+    <description>Lays out the Boundary Application Network graph (75% width) and the Boundary Impact Panel (25% width) side by side on one page, so an admin can see the visual map and the detailed list together.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property name="objectApiName" type="String" label="Object API Name" description="The API name of the Salesforce object to check by default, e.g. Account or a custom object such as Invoice__c. Each side still has its own picker to switch objects." />
+            <property name="fieldApiName" type="String" label="Field API Name (optional)" description="Narrow the default check to a single field on the object." />
+        </targetConfig>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="fieldApiName" type="String" label="Field API Name (optional)" description="Narrow the check to a single field on this record's object." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

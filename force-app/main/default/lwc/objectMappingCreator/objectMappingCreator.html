@@ -1,0 +1,108 @@
+<template>
+  <lightning-card>
+    <div class="slds-p-around_medium">
+      <template if:true={loadError}>
+        <div class="slds-text-color_error slds-m-bottom_small">{loadError}</div>
+      </template>
+
+      <template if:true={hasBoundaryApplication}>
+        <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium">
+          <template if:true={isEditMode}>Boundary Application:</template>
+          <template if:false={isEditMode}>Creating this mapping under Boundary Application:</template>
+          <strong>{boundaryApplicationName}</strong>
+        </p>
+      </template>
+
+      <template if:true={showBoundaryApplicationPicker}>
+        <div class="slds-m-bottom_medium">
+          <c-schema-option-picker
+            label="Boundary Application"
+            placeholder="Search Boundary Applications..."
+            required
+            options={boundaryApplicationOptions}
+            value={boundaryApplicationId}
+            onchange={handleBoundaryApplicationChange}
+          ></c-schema-option-picker>
+        </div>
+      </template>
+
+      <template if:true={showObjectPicker}>
+        <div class="slds-m-bottom_medium">
+          <c-schema-option-picker
+            label="Salesforce Object"
+            placeholder="Search objects..."
+            required
+            options={objectOptions}
+            value={selectedObjectApiName}
+            onchange={handleObjectChange}
+          ></c-schema-option-picker>
+        </div>
+      </template>
+
+      <template if:true={isEditMode}>
+        <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium">
+          Salesforce Object: <strong>{selectedObjectApiName}</strong>
+        </p>
+      </template>
+
+      <template if:true={selectedObjectApiName}>
+        <div class="slds-m-bottom_medium">
+          <lightning-dual-listbox
+            name="fields"
+            label="Fields to Map"
+            source-label="Available"
+            selected-label="Selected"
+            required
+            options={fieldOptions}
+            value={selectedFieldApiNames}
+            onchange={handleFieldsChange}
+          ></lightning-dual-listbox>
+        </div>
+      </template>
+
+      <div class="slds-m-bottom_medium">
+        <lightning-dual-listbox
+          name="operation"
+          label="Operation"
+          source-label="Available"
+          selected-label="Selected"
+          required
+          options={operationOptions}
+          value={selectedOperations}
+          onchange={handleOperationChange}
+        ></lightning-dual-listbox>
+      </div>
+
+      <div class="slds-m-bottom_medium">
+        <lightning-combobox
+          label="Sync Frequency"
+          placeholder="Select a sync frequency..."
+          required
+          options={syncFrequencyOptions}
+          value={syncFrequency}
+          onchange={handleSyncFrequencyChange}
+        ></lightning-combobox>
+      </div>
+
+      <div class="slds-m-bottom_medium">
+        <lightning-input
+          type="date"
+          label="Last Validated Date"
+          required
+          value={lastValidatedDate}
+          onchange={handleLastValidatedDateChange}
+        ></lightning-input>
+      </div>
+    </div>
+
+    <div slot="footer" class="slds-align_absolute-center">
+      <lightning-button label="Cancel" onclick={handleCancel} class="slds-m-right_x-small"></lightning-button>
+      <lightning-button
+        label="Save"
+        variant="brand"
+        disabled={isSaveDisabled}
+        onclick={handleSave}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>

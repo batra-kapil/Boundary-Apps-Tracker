@@ -1,0 +1,20 @@
+<aura:component implements="lightning:actionOverride,force:hasSObjectName,force:hasRecordId,lightning:isUrlAddressable" access="global">
+    <!--
+        Action overrides only accept an Aura component as the top-level target — this bundle
+        exists solely to bridge the platform's New/Edit-action context (object API name, the
+        related list's default field values, and the record being edited) down to the
+        objectMappingCreator LWC, which does all the real work.
+
+        This same bundle is configured in Setup as BOTH the New and Edit action override for
+        Object_Mapping__c.
+
+        Data is NOT passed via markup attribute binding (record-id="{!v.x}" style) — extensive
+        diagnostic logging proved that no attribute, including a hardcoded literal, ever reaches
+        the child LWC's @api properties in this actionOverride context. Instead, the child is
+        found via aura:id and its initialize() method is called directly from doInit once every
+        value is resolved. See objectMappingCreator.js's class doc comment for the LWC side.
+    -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <c:objectMappingCreator aura:id="creator" onclose="{!c.handleClose}"></c:objectMappingCreator>
+</aura:component>

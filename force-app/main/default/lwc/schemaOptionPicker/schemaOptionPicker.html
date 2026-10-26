@@ -1,0 +1,57 @@
+<template>
+  <div class="slds-form-element">
+    <label if:true={label} class="slds-form-element__label" for={inputId}>{label}{requiredMarker}</label>
+    <div class="slds-form-element__control">
+      <div class="slds-combobox_container">
+        <div class={comboboxClass} aria-expanded={isOpen} aria-haspopup="listbox" role="combobox">
+          <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+            <input
+              type="text"
+              id={inputId}
+              class="slds-input slds-combobox__input"
+              role="textbox"
+              aria-autocomplete="list"
+              aria-controls={listboxId}
+              autocomplete="off"
+              placeholder={placeholder}
+              value={inputValue}
+              disabled={disabled}
+              onfocus={handleFocus}
+              oninput={handleInput}
+              onkeydown={handleKeyDown}
+              onblur={handleBlur}
+            />
+            <lightning-icon
+              icon-name="utility:search"
+              size="x-small"
+              class="slds-input__icon slds-input__icon_right"
+            ></lightning-icon>
+          </div>
+          <div id={listboxId} role="listbox" class="slds-dropdown slds-dropdown_fluid slds-dropdown_length-with-icon-7">
+            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+              <template for:each={filteredOptions} for:item="option">
+                <li key={option.value} role="presentation" class="slds-listbox__item">
+                  <div
+                    class={option.computedClass}
+                    role="option"
+                    data-value={option.value}
+                    onmousedown={handleOptionMouseDown}
+                  >
+                    <span class="slds-media__body">
+                      <span class="slds-truncate" title={option.label}>{option.label}</span>
+                    </span>
+                  </div>
+                </li>
+              </template>
+              <template if:true={showNoResults}>
+                <li class="slds-listbox__item">
+                  <div class="slds-listbox__option slds-p-around_small slds-text-color_weak">No matches found</div>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

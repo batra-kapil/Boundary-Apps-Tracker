@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Critical__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Check this box if changing the data type of this field, or deleting it, would break this integration. Leave it unchecked if the field is cosmetic or optional for this integration, meaning the integration would keep working even if the field disappeared. This is the single most important flag an agent should read when deciding whether a proposed field deletion or type change is safe to proceed with.</description>
+    <inlineHelpText>Check if changing or deleting this field would break the integration. Uncheck for cosmetic/optional fields.</inlineHelpText>
+    <label>Is Critical</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

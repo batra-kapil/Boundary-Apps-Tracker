@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Owner__c</fullName>
+    <label>Business Owner</label>
+    <description>The Salesforce user who is accountable for this integration from the business side, such as a department head or process owner who understands why the integration exists and what business outcome it supports. Contact this person, in addition to the Technical Owner, before making a change that could disrupt a High criticality integration.</description>
+    <inlineHelpText>The person accountable for this integration on the business side.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipName>BoundaryApps_BusinessOwner</relationshipName>
+    <relationshipLabel>Boundary Applications (Business Owner)</relationshipLabel>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <required>false</required>
+</CustomField>

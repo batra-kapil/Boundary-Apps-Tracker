@@ -1,0 +1,156 @@
+<template>
+  <lightning-card title="Boundary Application Network" icon-name="standard:connected_apps">
+    <template if:true={showObjectPicker}>
+      <div class="slds-p-horizontal_medium slds-p-top_small slds-p-bottom_x-small">
+        <lightning-combobox
+          name="objectPicker"
+          label="Salesforce Object"
+          value={resolvedObjectApiName}
+          options={objectOptions}
+          placeholder="Choose an object to inspect"
+          onchange={handleObjectChange}
+        ></lightning-combobox>
+      </div>
+    </template>
+
+    <template if:true={needsObjectSelection}>
+      <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+        Choose an object above to see its boundary application network.
+      </div>
+    </template>
+
+    <template if:false={needsObjectSelection}>
+    <template if:true={isLoading}>
+      <div class="slds-p-around_medium slds-align_absolute-center">
+        <lightning-spinner alternative-text="Loading boundary application network" size="small"></lightning-spinner>
+      </div>
+    </template>
+
+    <template if:true={hasError}>
+      <div class="slds-p-around_medium slds-text-color_error">
+        Unable to load Boundary Application data right now. Contact your Salesforce admin if this continues.
+      </div>
+    </template>
+
+    <template if:true={showEmptyState}>
+      <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+        No known Boundary Applications are tracked against {centerLabel} yet.
+      </div>
+    </template>
+
+    <template if:true={showFilters}>
+      <div class="slds-p-horizontal_medium slds-p-top_small slds-p-bottom_x-small slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-2 slds-p-right_small">
+          <lightning-checkbox-group
+            name="criticalityFilter"
+            label="Criticality"
+            options={criticalityFilterOptions}
+            value={selectedCriticalities}
+            onchange={handleCriticalityFilterChange}
+          ></lightning-checkbox-group>
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+          <lightning-checkbox-group
+            name="directionFilter"
+            label="Direction"
+            options={directionFilterOptions}
+            value={selectedDirections}
+            onchange={handleDirectionFilterChange}
+          ></lightning-checkbox-group>
+        </div>
+      </div>
+    </template>
+
+    <template if:true={showNoFilterMatches}>
+      <div class="slds-p-around_medium slds-text-align_center">
+        <p class="slds-m-bottom_small slds-text-color_weak">No connected applications match the selected filters.</p>
+        <lightning-button label="Clear filters" onclick={handleClearFilters}></lightning-button>
+      </div>
+    </template>
+
+    <template if:true={hasNodes}>
+      <div class="graph-legend slds-p-horizontal_medium slds-p-top_small">
+        <span class="legend-group">
+          <span class="legend-title">Criticality</span>
+          <span class="legend-item"><span class="legend-dot legend-dot_high"></span>High</span>
+          <span class="legend-item"><span class="legend-dot legend-dot_medium"></span>Medium</span>
+          <span class="legend-item"><span class="legend-dot legend-dot_low"></span>Low</span>
+        </span>
+        <span class="legend-group">
+          <span class="legend-title">Direction</span>
+          <span class="legend-item"><span class="legend-line legend-line_solid"></span>Inbound</span>
+          <span class="legend-item"><span class="legend-line legend-line_dashed"></span>Outbound</span>
+          <span class="legend-item"><span class="legend-line legend-line_thick"></span>Bidirectional</span>
+        </span>
+      </div>
+
+      <div class="slds-p-around_small graph-container">
+        <svg viewBox={graphModel.viewBox} role="img" aria-label="Boundary application network diagram">
+          <template for:each={graphModel.nodes} for:item="node">
+            <line
+              key={node.id}
+              class={node.edgeClass}
+              x1={graphModel.centerX}
+              y1={graphModel.centerY}
+              x2={node.lineX2}
+              y2={node.lineY2}
+            ></line>
+          </template>
+
+          <circle class="graph-center" cx={graphModel.centerX} cy={graphModel.centerY} r={graphModel.centerR}></circle>
+          <text class="graph-center-initials" x={graphModel.centerX} y={graphModel.centerY} dy="0.35em" text-anchor="middle">{centerInitials}</text>
+          <text class="graph-center-label" x={graphModel.centerX} y={graphModel.centerLabelY} text-anchor="middle">{centerLabel}</text>
+
+          <template for:each={graphModel.nodes} for:item="node">
+            <g
+              key={node.id}
+              data-id={node.id}
+              class="graph-node-group"
+              tabindex="0"
+              role="button"
+              aria-label={node.title}
+              onclick={handleNodeActivate}
+              onkeyup={handleNodeKeyUp}
+            >
+              <title>{node.title}</title>
+              <rect
+                class="graph-label-pill"
+                x={node.labelPillX}
+                y={node.labelPillY}
+                width={node.labelPillWidth}
+                height="20"
+                rx="10"
+              ></rect>
+              <text class="graph-node-label" x={node.cx} y={node.labelY} text-anchor="middle">{node.shortLabel}</text>
+              <circle class={node.nodeClass} cx={node.cx} cy={node.cy} r={node.r}></circle>
+              <text class="graph-node-initials" x={node.cx} y={node.cy} dy="0.35em" text-anchor="middle">{node.initials}</text>
+            </g>
+          </template>
+        </svg>
+      </div>
+
+      <template if:true={graphModel.hasOverflow}>
+        <div class="slds-p-horizontal_medium slds-p-bottom_x-small slds-text-body_small slds-text-color_weak">
+          Showing the {graphModel.visibleCount} most critical of {graphModel.totalCount} connected applications. Click the "+{graphModel.overflowCount}" node to list the rest, or narrow down with the filters above.
+        </div>
+      </template>
+
+      <template if:true={showOverflowList}>
+        <ul class="overflow-list slds-p-horizontal_medium slds-p-bottom_small">
+          <template for:each={overflowApplications} for:item="item">
+            <li key={item.id} class="overflow-list-item" data-id={item.id} onclick={handleOverflowItemClick} tabindex="0" role="button">
+              <span class={item.dotClass}></span>
+              <span class="overflow-list-name">{item.applicationName}</span>
+              <span class="slds-text-color_weak overflow-list-meta">{item.criticality} · {item.direction}</span>
+            </li>
+          </template>
+        </ul>
+      </template>
+
+      <div class="slds-p-horizontal_medium slds-p-bottom_small slds-text-body_small slds-text-color_weak">
+        Click or press Enter on a node to open that Boundary Application.
+      </div>
+    </template>
+    </template>
+  </lightning-card>
+</template>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalClientApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>admin@example.com</contactEmail>
+    <description>OAuth client for AI assistants connecting via Salesforce's Hosted MCP Server to the Boundary Application Tracker's impact-check tool. Runs as the authenticated user — their own FLS and sharing rules apply, never a dedicated integration user.</description>
+    <distributionState>Local</distributionState>
+    <isProtected>false</isProtected>
+    <label>Boundary Application Tracker MCP Client</label>
+</ExternalClientApplication>

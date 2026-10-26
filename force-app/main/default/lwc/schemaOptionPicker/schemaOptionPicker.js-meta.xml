@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Schema Option Picker</masterLabel>
+    <description>Internal searchable/filterable combobox used by objectMappingCreator. Not placeable on its own — consumed only as a child component.</description>
+</LightningComponentBundle>

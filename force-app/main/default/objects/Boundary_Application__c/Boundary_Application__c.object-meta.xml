@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Boundary Application</label>
+    <pluralLabel>Boundary Applications</pluralLabel>
+    <description>Represents an external system that is connected to Salesforce for sending or receiving data, such as middleware, an ERP system, a marketing automation platform, a CPQ tool, or a business intelligence platform. Each record answers the question &quot;what outside system is touching Salesforce, and how critical is it?&quot; Use this object, together with its related Object Mapping and Field Mapping records, to determine which external systems depend on a specific Salesforce object or field before making a metadata change such as adding a field, deleting or modifying a field, changing a field&apos;s type, or merging Account or Contact records.</description>
+    <nameField>
+        <label>Application Name</label>
+        <type>Text</type>
+    </nameField>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <sharingModel>ReadWrite</sharingModel>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+</CustomObject>

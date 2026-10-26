@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Documentation_Link__c</fullName>
+    <label>Documentation Link</label>
+    <description>A hyperlink to external documentation describing this integration in more detail, such as a MuleSoft flow diagram, an Informatica mapping specification, an API contract, or an internal wiki page. Use this to point a human to authoritative technical detail that goes beyond what is captured in these tracker records.</description>
+    <inlineHelpText>Link to external documentation (MuleSoft flow, Informatica mapping, API spec, etc.).</inlineHelpText>
+    <type>Url</type>
+    <required>false</required>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notes__c</fullName>
+    <description>Any additional context about this field-level mapping that does not fit into a structured field, such as transformation logic applied in the middleware, known quirks of the external system, or edge cases an admin should be aware of before changing this field.</description>
+    <inlineHelpText>Any additional context — transformation logic, known quirks, edge cases.</inlineHelpText>
+    <label>Notes</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

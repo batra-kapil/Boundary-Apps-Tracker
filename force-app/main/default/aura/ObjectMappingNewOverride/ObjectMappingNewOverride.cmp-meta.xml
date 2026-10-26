@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <description>Aura wrapper that registers objectMappingCreator (an LWC) as the New action override on Object_Mapping__c. Action overrides require an Aura component as the top-level target; this bundle exists only to bridge context to the LWC.</description>
+</AuraDefinitionBundle>

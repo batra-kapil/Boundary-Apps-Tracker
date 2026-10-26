@@ -1,0 +1,16 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.dashboard-col {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

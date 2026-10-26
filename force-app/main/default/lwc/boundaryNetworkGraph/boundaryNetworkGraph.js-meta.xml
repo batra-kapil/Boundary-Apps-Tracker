@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Boundary Application Network Graph</masterLabel>
+    <description>Renders the current object at the center of a diagram with connected Boundary Applications as surrounding nodes, colored by criticality with edges styled by direction. Click a node to open that record. A lightweight custom SVG layout, no charting library.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="fieldApiName" type="String" label="Field API Name (optional)" description="Narrow the graph to applications connected to a single field on this record's object. Leave blank to show every application connected to the object." />
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property name="objectApiName" type="String" label="Object API Name" description="The API name of the Salesforce object to center the graph on, e.g. Account or a custom object such as Invoice__c." />
+            <property name="fieldApiName" type="String" label="Field API Name (optional)" description="Narrow the graph to applications connected to a single field on the object. Leave blank to show every application connected to the object." />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="objectApiName" type="String" label="Object API Name" description="The API name of the Salesforce object to center the graph on, e.g. Account or a custom object such as Invoice__c." role="inputOnly" />
+            <property name="fieldApiName" type="String" label="Field API Name (optional)" description="Narrow the graph to applications connected to a single field on the object. Leave blank to show every application connected to the object." role="inputOnly" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

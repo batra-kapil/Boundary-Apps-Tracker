@@ -1,0 +1,7 @@
+.slds-combobox_container {
+  position: relative;
+}
+
+.slds-dropdown {
+  z-index: 7000;
+}

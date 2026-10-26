@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_User__c</fullName>
+    <label>Integration User</label>
+    <description>The Salesforce user record that this external system authenticates as when it connects to Salesforce, if the integration uses a dedicated integration user (as opposed to a named end-user's credentials). Knowing the integration user helps an admin trace API activity in login history and debug logs back to this specific Boundary Application.</description>
+    <inlineHelpText>The Salesforce API user this system authenticates as, if applicable.</inlineHelpText>
+    <type>Lookup</type>
+    <referenceTo>User</referenceTo>
+    <relationshipName>BoundaryApps_IntegrationUser</relationshipName>
+    <relationshipLabel>Boundary Applications (Integration User)</relationshipLabel>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <required>false</required>
+</CustomField>

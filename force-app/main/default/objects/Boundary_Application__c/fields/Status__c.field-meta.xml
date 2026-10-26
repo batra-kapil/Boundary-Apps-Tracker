@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <description>The current operational state of this integration. Active means the integration is live today and any impact it would suffer from a metadata change is real and immediate. Deprecated means the integration still exists in configuration but should no longer be treated as a live dependency, and is a candidate for cleanup. Planned means the integration does not yet send or receive live data but is expected to soon, so it should be considered when planning future-facing changes even though it has no current-day impact.</description>
+    <inlineHelpText>Current operational state of this integration.</inlineHelpText>
+    <type>Picklist</type>
+    <required>true</required>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active</fullName>
+                <default>true</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Deprecated</fullName>
+                <default>false</default>
+                <label>Deprecated</label>
+            </value>
+            <value>
+                <fullName>Planned</fullName>
+                <default>false</default>
+                <label>Planned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

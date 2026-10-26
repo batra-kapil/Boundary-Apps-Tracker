@@ -1,0 +1,126 @@
+<template>
+  <lightning-card title="Boundary Applications" icon-name="standard:connected_apps">
+    <template if:true={showObjectPicker}>
+      <div class="slds-p-horizontal_medium slds-p-top_small slds-p-bottom_x-small">
+        <lightning-combobox
+          name="objectPicker"
+          label="Salesforce Object"
+          value={resolvedObjectApiName}
+          options={objectOptions}
+          placeholder="Choose an object to inspect"
+          onchange={handleObjectChange}
+        ></lightning-combobox>
+      </div>
+    </template>
+
+    <template if:true={needsObjectSelection}>
+      <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+        Choose an object above to see its connected Boundary Applications.
+      </div>
+    </template>
+
+    <template if:false={needsObjectSelection}>
+      <template if:true={isLoading}>
+        <div class="slds-p-around_medium slds-align_absolute-center">
+          <lightning-spinner alternative-text="Loading boundary application data" size="small"></lightning-spinner>
+        </div>
+      </template>
+
+      <template if:true={hasError}>
+        <div class="slds-p-around_medium slds-text-color_error">
+          Unable to load Boundary Application data right now. Contact your Salesforce admin if this continues.
+        </div>
+      </template>
+
+      <template if:true={showEmptyState}>
+        <div class="slds-p-around_medium slds-text-align_center">
+          <p class="slds-m-bottom_medium slds-text-color_weak">
+            No known Boundary Applications are tracked against this object yet.
+          </p>
+          <lightning-button
+            variant="brand"
+            label="Track a new Boundary Application"
+            onclick={handleTrackNew}
+          ></lightning-button>
+        </div>
+      </template>
+
+      <template if:true={showFilters}>
+        <div class="slds-p-horizontal_medium slds-p-bottom_small slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-2 slds-p-right_small">
+            <lightning-checkbox-group
+              name="criticalityFilter"
+              label="Criticality"
+              options={criticalityFilterOptions}
+              value={selectedCriticalities}
+              onchange={handleCriticalityFilterChange}
+            ></lightning-checkbox-group>
+          </div>
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-checkbox-group
+              name="directionFilter"
+              label="Direction"
+              options={directionFilterOptions}
+              value={selectedDirections}
+              onchange={handleDirectionFilterChange}
+            ></lightning-checkbox-group>
+          </div>
+        </div>
+      </template>
+
+      <template if:true={showNoFilterMatches}>
+        <div class="slds-p-around_medium slds-text-align_center">
+          <p class="slds-m-bottom_small slds-text-color_weak">No connected applications match the selected filters.</p>
+          <lightning-button label="Clear filters" onclick={handleClearFilters}></lightning-button>
+        </div>
+      </template>
+
+      <template if:true={showResults}>
+      <div class="slds-p-horizontal_medium slds-p-bottom_small slds-wrap">
+        <template for:each={applications} for:item="app">
+          <span key={app.applicationId} class={app.chipClass} style="display:inline-block;border-radius:1rem;margin:0.15rem;">
+            <lightning-badge label={app.applicationName}></lightning-badge>
+          </span>
+        </template>
+      </div>
+
+      <lightning-accordion allow-multiple-sections-open>
+        <template for:each={applications} for:item="app">
+          <lightning-accordion-section key={app.applicationId} name={app.applicationId} label={app.accordionLabel}>
+            <dl class="slds-list_horizontal slds-wrap">
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Direction</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.direction}</dd>
+
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Integration Pattern</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.integrationPattern}</dd>
+
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Sync Frequency</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.syncFrequencyDisplay}</dd>
+
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Technical Owner</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.technicalOwnerDisplay}</dd>
+
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Business Owner</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.businessOwnerDisplay}</dd>
+
+              <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Last Validated</dt>
+              <dd class="slds-item_detail slds-truncate" style="width:60%;">{app.lastValidatedDisplay}</dd>
+
+              <template if:true={app.showCriticalFieldFlag}>
+                <dt class="slds-item_label slds-text-color_weak slds-truncate" style="width:40%;">Critical to This Field</dt>
+                <dd class="slds-item_detail" style="width:60%;">{app.isCriticalFieldDisplay}</dd>
+              </template>
+            </dl>
+
+            <template if:true={app.documentationLink}>
+              <p class="slds-m-top_small">
+                <a href={app.documentationLink} target="_blank" rel="noopener noreferrer">View documentation</a>
+              </p>
+            </template>
+          </lightning-accordion-section>
+        </template>
+      </lightning-accordion>
+      </template>
+    </template>
+  </lightning-card>
+</template>
