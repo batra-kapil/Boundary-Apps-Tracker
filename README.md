@@ -381,7 +381,7 @@ These are ideas only. **None of them is built.**
 
 ## Follow along
 
-If you find this project useful, **[subscribe to SF Bolt on YouTube](https://youtube.com/SalesforceBolt)** for content on AI, Agentforce, LWC and more.
+If you find this project useful, **[subscribe to SF Bolt on YouTube](https://youtube.com/SalesforceBolt)** for content on AI, Agentforce, LWC and more, and read the blog at **[salesforcebolt.com](https://www.salesforcebolt.com/)**.
 
 ## Contributing
 
